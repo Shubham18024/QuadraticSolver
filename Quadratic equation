@@ -1,0 +1,40 @@
+import cmath 
+import math
+def main():
+    ans="y"
+    while ans.lower()=="y":
+        print("*** Quadratic Equation Calculator ***")
+        print("\nPlease provide the value of a,b,c ; where a,b,c are belongs to Real Number ")
+        try:
+            a=float(input("\nEnter a number : "))
+            if a==0:
+                print("a cannot be equal to zero , as divison by zero is indeterminate form")
+                continue
+            b=float(input("Enter a number : "))
+            c=float(input("Enter a number : "))
+        except ValueError:
+            print("Invalid input: please enter a valid number")
+            continue
+        print("\nYour Quadratic Equation : ","(",a ,"x","²","+",b,"x","+",c,"=","0",")",)
+        Quad_solver(a,b,c)
+        ans=input("\ndo you want to continue?\n(y/n) : ")
+        print("\nThank You (◔‿◔) ")
+
+def Quad_solver(a,b,c):
+    D=(b**2)-4*a*c
+    print("\nDeterminant = ",D)
+    if D>0:
+        x_1=(-b+math.sqrt(D))/(2*a)
+        x_2=(-b-math.sqrt(D))/(2*a)
+        print("\nReal and Distinct roots : ",("("),x_1,",",x_2,")")
+    elif D==0:
+        x_1=(-b)/(2*a)
+        x_2=(-b)/(2*a)
+        print("\nTwo equal roots : ",("("),x_1,",",x_2,")")
+    else:
+        x_1=(-b+cmath.sqrt(D))/(2*a)
+        x_2=(-b-cmath.sqrt(D))/(2*a)
+        print("\nImaginary and Distinct roots : ",("("),x_1,",",x_2,")")
+
+if __name__=="__main__":
+    main()
